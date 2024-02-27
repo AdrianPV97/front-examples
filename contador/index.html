@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+
+    <style>
+        .frame{
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainContainer">
+        <!-- <div class="dias"></div>
+        <div class="horas">00</div>
+        <div class="minutos">00</div>
+        <div class="segundos">00</div>
+
+        <div class="position"><span class="xpos"></span>, <span class="ypos"></span></div> -->
+
+        <div class="frame" style="height: 100px; width:100px; background-color:red;"></div>
+    </div>
+
+
+    <script>
+        //const days = document.querySelector('.dias');
+        //const hours = document.querySelector('.horas');
+        //const mins = document.querySelector('.minutos');
+        //const seg = document.querySelector('.segundos');
+        //const xpos = document.querySelector('.xpos');
+        //const ypos = document.querySelector('.ypos');
+        const frame = document.querySelector('.frame');
+        //const bday = new Date("2024-06-12 17:00:00");
+
+        window.onmousemove = (event)=>{
+            //xpos.innerHTML = event.clientX;
+            //ypos.innerHTML = event.clientY;
+            frame.style.transform = `translate(${event.clientX / 100 }%, ${event.clientY/100}%)`;
+            //frame.style.transform = `translateY()`
+            //console.log(event.clientX)
+            //console.log(event.clientY)
+        }
+
+        setInterval(()=>{
+            const date = new Date();
+            const diferencia = bday - date;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            days.innerHTML = dias;
+            hours.innerHTML = horas;
+            mins.innerHTML = minutos;
+            seg.innerHTML = segundos;
+
+        //console.log(`Cuenta regresiva: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`);
+        }, 1000);
+    </script>
+</body>
+</html>
